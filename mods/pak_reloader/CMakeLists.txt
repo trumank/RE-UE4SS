@@ -13,13 +13,8 @@ set(${TARGET}_Sources
         "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/imgui_tables.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/imgui_widgets.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/misc/cpp/imgui_stdlib.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/backends/imgui_impl_win32.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/backends/imgui_impl_dx11.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/backends/imgui_impl_opengl3.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../Dependencies/imgui/backends/imgui_impl_glfw.cpp"
         )
 
 add_library(${TARGET} SHARED ${${TARGET}_Sources})
-target_include_directories(${TARGET} PRIVATE "include")
-target_link_libraries(${TARGET} PRIVATE File JSON Input)
-target_link_libraries(${TARGET} PUBLIC cppsdk xinput1_3)
+target_include_directories(${TARGET} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_link_libraries(${TARGET} PRIVATE ue4ss)
