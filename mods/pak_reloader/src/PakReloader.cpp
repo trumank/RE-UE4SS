@@ -52,10 +52,7 @@ namespace RC::GUI::PakReloader
     {
         void* vftable;
         void* LowerLevel;
-        //TArray<FPakListEntry> PakFiles; // can't use TArray because no exported template for FPakListEntry
-        FPakListEntry* PakFiles;
-        uint32_t PakFilesNum;
-        uint32_t PakFilesMax;
+        TArray<FPakListEntry> PakFiles;
     };
 
     struct V422_DelegateMount
@@ -232,7 +229,7 @@ namespace RC::GUI::PakReloader
                 m_input_mount.clear();
             }
 
-            for (int i = 0; i < MountPak->Pak()->PakFilesNum; i++)
+            for (int i = 0; i < MountPak->Pak()->PakFiles.Num(); i++)
             {
                 FPakListEntry entry = MountPak->Pak()->PakFiles[i];
 
